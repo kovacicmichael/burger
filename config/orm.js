@@ -90,9 +90,10 @@ var orm = {
   },
 
   delete: function(table, id, cb){
-    var queryString = "DELETE FROM " + table + " WHERE id = '" + id "'";
-
+    var queryString = "DELETE FROM " + table + " WHERE id = " + id;
+    console.log(queryString);
     connection.query(queryString, function(err, result){
+      console.log("here query connection delete")
       if(err) {
         throw err;
       }
