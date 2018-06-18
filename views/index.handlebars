@@ -6,18 +6,39 @@
 <h2>Create a burger!</h2>
 
 <div class="container">
-  <ol>
-    {{#each burgers}}
-      <li>
-          {{burger_name}}
+  <div class="col-md-6">
+    <h3>Burgers You Need To Try!</h3>
+      <ol>
+        {{#each burgers}}
+          {{#unless eaten}}
+          <li>
+              {{burger_name}}
 
-          <button class="eat" data-id="{{id}}" data-newsleep="{{sleep}}">
-            Devour It!
-          </button>
-      </li>
+              <button class="eat" data-id="{{id}}" data-newsleep="{{sleep}}">
+                Devour It!
+              </button>
+          </li>
+          {{/unless}}
+        {{/each}}
+      </ol>
+  </div>
 
-    {{/each}}
-  </ol>
+  <div class="col-md-6">
+    <h3>Consumed Burgers!!</h3>
+    <ol>
+        {{#each burgers}}
+          {{#if eaten}}
+          <li>
+              {{burger_name}}
+
+              <button class="delete" data-id="{{id}}" data-newsleep="{{sleep}}">
+                Delete It.
+              </button>
+          </li>
+          {{/if}}
+        {{/each}}
+      </ol>
+  </div>
 
 </div>
 
